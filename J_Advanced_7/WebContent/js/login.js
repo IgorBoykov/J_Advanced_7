@@ -66,14 +66,17 @@ $("button.login").click(function() {
 		$.post("login", userLogin, function(data) {
 			if(data !==''){
 				var customUrl = '';
-				var urlContent = wimdow.location.href.split('/');
+				var urlContent = window.location.href.split('/');
 				for (var i =0; i<urlContent.length-1; i++){
-					customUrl+=urlContent[i]+'/'
+					customUrl+=urlContent[i]+'/';
+					console.log(urlContent[i])
+					
 					}
-					customUrl+=data.destinationUrl;
-					window.location = customUrl;
+					customUrl+= "homepage.jsp";
+					console.log(customUrl);
+					window.location= "homepage.jsp";
 				}
-				$("form")[1].reset();
+				$("form")[1].reset();;
 		});
 	}
 });
